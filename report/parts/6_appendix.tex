@@ -1,8 +1,15 @@
 \appendix
-\section{Appendix}
-\subsection{Data}\label{sec:data_appendix}
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\section{Positionality Statement}
+I am a white male settler...
 
-\subsubsection{Original Data}
+\section{AI Usage Statement}
+ChatGPT was used at various points in this study for finding relevant sources, debugging code, suggesting modelling ideas and code for generating plots. It was not used for writing, analysis or used to directly generate any results.
+
+\section{Data}\label{sec:data_appendix}
+
+\subsection{Original Data}
 
 \cite{cnfdb} \textbf{Fire Data:}
 \begin{itemize}
@@ -48,7 +55,7 @@
     \item \texttt{WEBREF}: external reference link
 \end{itemize}
 
-\subsubsection{Data Cleaning \& Joining}
+\subsection{Data Cleaning \& Joining}
 
 Fire and evacuation records were linked using a nearest-neighbour heuristic in both time and space. For each evacuation, candidate fires were restricted to those reported within a $\pm14$ day window of the evacuation issue date, and the closest such fire (in geodesic distance) was selected, provided it lay within 100\,km. Evacuations without a valid match under these criteria were discarded, resulting in approximately three quarters of evacuations being retained. However, this introduces potential bias: unmatched evacuations were disproportionately associated with First Nations reserves, so their removal may attenuate estimated effects related to Indigenous proximity. This is a limitation of this matching method that could be investigated by further work.
 

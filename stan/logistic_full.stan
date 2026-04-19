@@ -6,7 +6,7 @@ data {
 
   // Numeric predictors
   vector[N] log_fire_size;
-  vector[N] dist_to_fn_km;
+  vector[N] log_dist_to_fn_km;
   array[N] int<lower=0, upper=1> fn_indicator;
 
   int<lower=1> K_prot;
@@ -41,7 +41,7 @@ model {
          + a_prov[province[n]]
          + a_prot[protection_zone[n]]
              + beta_log_fire_size * log_fire_size[n]
-             + beta_dist * dist_to_fn_km[n]
+             + beta_dist * log_dist_to_fn_km[n]
              + beta_fn * fn_indicator[n];
   }
 
@@ -57,7 +57,7 @@ generated quantities {
        + a_prov[province[n]]
        + a_prot[protection_zone[n]]
          + beta_log_fire_size * log_fire_size[n]
-         + beta_dist * dist_to_fn_km[n]
+         + beta_dist * log_dist_to_fn_km[n]
          + beta_fn * fn_indicator[n];
     log_lik[n] = bernoulli_logit_lpmf(y[n] | theta_n);
     y_rep[n] = bernoulli_logit_rng(theta_n);

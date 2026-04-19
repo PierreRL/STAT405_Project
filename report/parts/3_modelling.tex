@@ -1,14 +1,23 @@
 \section{Probabilistic Modelling and Inference}\label{sec:modelling}
 \subsection{Logistic Regression}\label{sec:first_model}
-
+I test each of the following models of increasing complexity.
 \textbf{A Minimal Model:}
-\textbf{Adding province:}
-\textbf{Conditioning on Response:}
+\[\theta_i
+=
+\alpha
++ \beta_{\text{size}} \, \log(\text{fire\_size}_i)
++ \beta_{\text{fn}} \, \text{fn\_indicator}_i,
+\qquad
+y_i \sim \mathrm{Bernoulli}\!\left(\mathrm{logistic}(\theta_i)\right)\]
+\textbf{Provinces:}
+\textbf{Responses:}
+\textbf{Spatial Effects:}
+\textbf{Diagnostics}: I ran posterior predictive checks (PPC) for every model above, verifying that a credible interval over the  total number of evacuations is consistent with the data. These can be seen below in Table YY. Trace plots and rank plots all indicated fast mixing and a well explored posterior, which can be found in Appendix XX. All Pareto-k values were in the 'good' for the LOO sampling done by arviz for model comparison purposes.
 \subsection{Model Comparison}\label{sec:model_comparison}
 Comparison
+Model LOO alpha, beta\_fn, 
 
-\subsection{Kernel Logistic Regression}
-Motivation: Interaction variables
-\textbf{Diagnostics}: Throughout, I ran posterior predictive checks. e.g. calculate total no. of evacs from posterior draws as a 95\% credible interval and find that the true values is inside. Trace plots and rank plots all look good, which can be found in Appendix XX.
+More detailed analysis of coefficients can be found in Section~\ref{sec:results}.
+
 \subsection{Variational Inference}
 The most complex model was computationally expensive to run inference on. Thus I also ran variational inference on this
